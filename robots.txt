@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://osamuelpadua.github.io/dr-hidelvani/sitemap.xml
+Sitemap: https://www.osteopatiaguaranta.com.br/sitemap.xml
