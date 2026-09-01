@@ -121,6 +121,7 @@ body::-webkit-scrollbar-thumb:hover {
   position: absolute;
   inset: 0;
   background-image: url('bg-hero.jpg');
+  background-image: image-set(url('bg-hero.webp') type('image/webp'), url('bg-hero.jpg') type('image/jpeg'));
   background-size: cover;
   background-position: center;
   z-index: 0;
@@ -1681,6 +1682,7 @@ body::-webkit-scrollbar-thumb:hover {
 .faq-block {
   position: relative;
   background: url("bg-faq.jpg") center/cover no-repeat;
+  background-image: image-set(url('bg-faq.webp') type('image/webp'), url('bg-faq.jpg') type('image/jpeg'));
   padding: 104px 0 96px;
 }
 
@@ -2099,6 +2101,31 @@ body::-webkit-scrollbar-thumb:hover {
   border: 0;
   display: block;
   filter: saturate(0.88) contrast(0.94) brightness(1.02);
+}
+
+/* ===== FACHADA DO MAPA (carregamento adiado) ===== */
+.map-facade {
+  position: absolute;
+  inset: 0;
+  background: var(--gray-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.map-facade-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--primary);
+  color: var(--white);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 12px 20px;
+  border-radius: 50px;
+  box-shadow: 0 4px 16px rgba(10, 79, 130, 0.3);
 }
 
 @media (min-width: 1921px) {

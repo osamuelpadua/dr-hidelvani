@@ -5,9 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fisioterapeuta Especialista em Osteopatia Pediátrica em Guarantã do Norte - MT</title>
   <meta name="description" content="Fisioterapeuta especialista em osteopatia pediátrica em Guarantã do Norte - MT. Cuidado gentil, seguro e individualizado para aliviar os desconfortos do seu bebê e apoiar cada fase do desenvolvimento.">
+  <link rel="canonical" href="https://osamuelpadua.github.io/dr-hidelvani/osteopatia/">
   <meta name="robots" content="index,follow">
   <meta property="og:locale" content="pt_BR">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://osamuelpadua.github.io/dr-hidelvani/osteopatia/">
   <meta property="og:site_name" content="Dr. Hidelvani">
   <meta property="og:title" content="Dr. Hidelvani Nunes - Fisioterapeuta Especialista em Osteopatia Pediátrica">
   <meta property="og:description" content="Fisioterapeuta especialista em osteopatia pediátrica em Guarantã do Norte - MT. Cuidado gentil, seguro e individualizado para o desenvolvimento do seu bebê.">
@@ -133,7 +135,10 @@
             <img src="../stamp-txt-page2.svg" class="stamp-txt" alt="">
             <img src="../stamp-iso.svg" class="stamp-iso" alt="">
           </div>
-          <img src="../dr-hidelvani.png" class="doctor-img" alt="Dr. Hidelvani Nunes" loading="eager">
+          <picture>
+            <source srcset="../dr-hidelvani.webp" type="image/webp">
+            <img src="../dr-hidelvani.png" class="doctor-img" alt="Dr. Hidelvani Nunes" loading="eager">
+          </picture>
         </div>
 
       </div>
@@ -234,7 +239,10 @@
     <div class="condition-inner">
 
       <div class="condition-media">
-        <img src="../torcicolo.png" class="condition-img" alt="Fisioterapeuta avaliando a mobilidade do pescoço de um bebê">
+        <picture>
+          <source srcset="../torcicolo.webp" type="image/webp">
+          <img src="../torcicolo.png" class="condition-img" alt="Fisioterapeuta avaliando a mobilidade do pescoço de um bebê">
+        </picture>
       </div>
 
       <div class="condition-text">
@@ -254,7 +262,10 @@
     <div class="condition-inner">
 
       <div class="condition-media">
-        <img src="../assimetria-craniana.png" class="condition-img" alt="Fisioterapeuta realizando técnica craniana suave em um bebê">
+        <picture>
+          <source srcset="../assimetria-craniana.webp" type="image/webp">
+          <img src="../assimetria-craniana.png" class="condition-img" alt="Fisioterapeuta realizando técnica craniana suave em um bebê">
+        </picture>
       </div>
 
       <div class="condition-text">
@@ -274,7 +285,10 @@
     <div class="condition-inner">
 
       <div class="condition-media">
-        <img src="../colica.png" class="condition-img" alt="Fisioterapeuta realizando massagem abdominal suave em um bebê">
+        <picture>
+          <source srcset="../colica.webp" type="image/webp">
+          <img src="../colica.png" class="condition-img" alt="Fisioterapeuta realizando massagem abdominal suave em um bebê">
+        </picture>
       </div>
 
       <div class="condition-text">
@@ -294,7 +308,10 @@
     <div class="condition-inner">
 
       <div class="condition-media">
-        <img src="../amamentacao.png" class="condition-img" alt="Fisioterapeuta avaliando a mandíbula de um bebê com a mãe presente">
+        <picture>
+          <source srcset="../amamentacao.webp" type="image/webp">
+          <img src="../amamentacao.png" class="condition-img" alt="Fisioterapeuta avaliando a mandíbula de um bebê com a mãe presente">
+        </picture>
       </div>
 
       <div class="condition-text">
@@ -550,7 +567,10 @@
   <section class="profile-block">
     <div class="profile-inner">
       <div class="profile-media">
-        <img src="../profile-page2.jpg" alt="Dr. Hidelvani Nunes" class="profile-image">
+        <picture>
+          <source srcset="../profile-page2.webp" type="image/webp">
+          <img src="../profile-page2.jpg" alt="Dr. Hidelvani Nunes" class="profile-image">
+        </picture>
       </div>
 
       <div class="profile-content">
@@ -742,20 +762,44 @@
         </div>
 
         <div class="contact-brand">
-          <img src="../logo-centralfisio.png" alt="Central Fisio" class="contact-logo contact-logo--partner">
+          <picture>
+            <source srcset="../logo-centralfisio.webp" type="image/webp">
+            <img src="../logo-centralfisio.png" alt="Central Fisio" class="contact-logo contact-logo--partner">
+          </picture>
           <img src="../logo.svg" alt="Dr. Hidelvani Nunes Fisioterapeuta" class="contact-logo contact-logo--own">
         </div>
       </div>
 
-      <div class="contact-map-wrap">
-        <iframe
-          class="contact-map"
-          title="Mapa da Clínica Maranata - Dr. Hidelvani Nunes"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          src="https://www.google.com/maps?q=Clinica+Maranata,+R.+Inhare,+1070,+Centro,+Guaranta+do+Norte+-+MT,+78520-000&z=17&output=embed">
-        </iframe>
+      <div class="contact-map-wrap" id="map-wrap">
+        <div class="map-facade" id="map-facade" onclick="loadMap()">
+          <div class="map-facade-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" fill="currentColor"/><circle cx="12" cy="9" r="2.5" fill="white"/></svg>
+            Ver no mapa
+          </div>
+        </div>
       </div>
+      <script>
+        function loadMap() {
+          var wrap = document.getElementById('map-wrap');
+          var facade = document.getElementById('map-facade');
+          if (!wrap || !facade) return;
+          facade.style.display = 'none';
+          var iframe = document.createElement('iframe');
+          iframe.className = 'contact-map';
+          iframe.title = 'Mapa da Clínica Maranata - Dr. Hidelvani Nunes';
+          iframe.referrerPolicy = 'no-referrer-when-downgrade';
+          iframe.src = 'https://www.google.com/maps?q=Clinica+Maranata,+R.+Inhare,+1070,+Centro,+Guaranta+do+Norte+-+MT,+78520-000&z=17&output=embed';
+          iframe.style.border = '0';
+          wrap.appendChild(iframe);
+        }
+        if ('IntersectionObserver' in window) {
+          var mapObserver = new IntersectionObserver(function (entries) {
+            if (entries[0].isIntersecting) { loadMap(); mapObserver.disconnect(); }
+          }, { rootMargin: '200px' });
+          var mapWrapEl = document.getElementById('map-wrap');
+          if (mapWrapEl) mapObserver.observe(mapWrapEl);
+        }
+      </script>
     </div>
   </section>
   <!-- ======================== /CONTACT BLOCK ======================== -->
