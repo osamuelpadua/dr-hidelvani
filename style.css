@@ -386,7 +386,7 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .intro-right p {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
   line-height: 1.7;
   color: var(--white);
