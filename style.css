@@ -2041,21 +2041,30 @@ body::-webkit-scrollbar-thumb:hover {
   padding-top: 72px;
   display: flex;
   align-items: center;
-  gap: 32px;
-  flex-wrap: wrap;
+  gap: 24px;
 }
 
 .contact-logo {
   display: block;
   height: auto;
+  flex-shrink: 1;
+  min-width: 0;
+}
+
+.contact-logo img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .contact-logo--partner {
-  width: min(150px, 40%);
+  flex-basis: 130px;
+  max-width: 130px;
 }
 
 .contact-logo--own {
-  width: min(230px, 55%);
+  flex-basis: 190px;
+  max-width: 190px;
 }
 
 /* ===== LINHA DE ABRANGÊNCIA (contato) ===== */
@@ -2167,14 +2176,6 @@ body::-webkit-scrollbar-thumb:hover {
   .contact-brand {
     margin-top: 0;
     padding-top: 48px;
-  }
-
-  .contact-logo--partner {
-    width: min(130px, 40%);
-  }
-
-  .contact-logo--own {
-    width: min(200px, 55%);
   }
 
   .contact-map-wrap {
