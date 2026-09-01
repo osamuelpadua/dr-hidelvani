@@ -2332,22 +2332,6 @@ body::-webkit-scrollbar-thumb:hover {
   }
 }
 
-/* ===== PLACEHOLDER DE MÍDIA (bloco de condição sem foto real) ===== */
-.condition-media--placeholder {
-  background: var(--gray-bg);
-  aspect-ratio: 4 / 3;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.condition-media--placeholder img {
-  width: 72px;
-  height: 72px;
-  opacity: 0.35;
-  display: block;
-}
-
 /* ===== LINHA DE ABRANGÊNCIA (contato) ===== */
 .contact-coverage {
   margin-top: 20px;
