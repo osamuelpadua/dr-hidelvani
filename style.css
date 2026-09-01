@@ -1717,6 +1717,7 @@ body::-webkit-scrollbar-thumb:hover {
   padding: 78px 72px 70px min(18vw, 320px);
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   justify-content: flex-start;
 }
 
@@ -1829,10 +1830,12 @@ body::-webkit-scrollbar-thumb:hover {
 
 /* ===== LINHA DE ABRANGÊNCIA (contato) ===== */
 .contact-coverage {
-  margin-top: 20px;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 524px;
+  margin: 20px 0 0 0;
   padding-left: 16px;
   border-left: 2px solid var(--teal);
-  max-width: 420px;
 }
 
 .contact-coverage-title {
@@ -1895,7 +1898,10 @@ body::-webkit-scrollbar-thumb:hover {
     padding: 76px 40px 56px;
   }
 
-  .contact-cards {
+  .contact-header,
+  .contact-cards,
+  .contact-coverage,
+  .contact-brand {
     max-width: 680px;
   }
 
