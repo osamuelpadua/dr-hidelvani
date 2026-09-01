@@ -611,12 +611,12 @@ body::-webkit-scrollbar-thumb:hover {
 
 /* Headline */
 .problems-headline {
-  flex: 0 0 230px;
-  font-size: 22px;
+  flex: 0 0 330px;
+  font-size: 26px;
   font-weight: 700;
-  line-height: 1.5;
+  line-height: 1.2;
   color: var(--white);
-  letter-spacing: -0.01em;
+  letter-spacing: 0;
 }
 
 /* Body text */
