@@ -1803,11 +1803,23 @@ body::-webkit-scrollbar-thumb:hover {
   max-width: 524px;
   margin-top: auto;
   padding-top: 72px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  flex-wrap: wrap;
 }
 
 .contact-logo {
-  width: min(420px, 100%);
   display: block;
+  height: auto;
+}
+
+.contact-logo--partner {
+  width: min(150px, 40%);
+}
+
+.contact-logo--own {
+  width: min(230px, 55%);
 }
 
 .contact-map-wrap {
@@ -1863,8 +1875,12 @@ body::-webkit-scrollbar-thumb:hover {
     padding-top: 48px;
   }
 
-  .contact-logo {
-    width: min(360px, 100%);
+  .contact-logo--partner {
+    width: min(130px, 40%);
+  }
+
+  .contact-logo--own {
+    width: min(200px, 55%);
   }
 
   .contact-map-wrap {
@@ -2136,8 +2152,14 @@ body::-webkit-scrollbar-thumb:hover {
     max-width: 680px;
   }
 
-  .contact-logo {
-    margin: 0 auto;
+  .contact-brand {
+    justify-content: center;
+  }
+
+  .contact-coverage {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
   }
 
   .contact-card {
@@ -2333,11 +2355,29 @@ body::-webkit-scrollbar-thumb:hover {
 /* ===== LINHA DE ABRANGÊNCIA (contato) ===== */
 .contact-coverage {
   margin-top: 20px;
+  padding-left: 16px;
+  border-left: 2px solid var(--teal);
+  max-width: 420px;
+}
+
+.contact-coverage-title {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--dark);
+  margin-bottom: 4px;
+}
+
+.contact-coverage-text {
   font-size: 13px;
   font-weight: 500;
   line-height: 1.6;
   color: #083C66;
-  max-width: 420px;
+}
+
+.contact-coverage-text strong {
+  font-weight: 700;
+  color: var(--dark);
 }
 
 /* ===== LINK ENTRE PÁGINAS (Coluna ⇄ Osteopatia) ===== */
@@ -2365,5 +2405,6 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 @media (max-width: 480px) {
-  .contact-coverage { font-size: 12.5px; }
+  .contact-coverage-title { font-size: 13px; }
+  .contact-coverage-text { font-size: 12.5px; }
 }
