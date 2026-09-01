@@ -1833,7 +1833,7 @@ body::-webkit-scrollbar-thumb:hover {
   box-sizing: border-box;
   width: 100%;
   max-width: 524px;
-  margin: 20px 0 0 0;
+  margin: 36px 0 0 0;
   padding-left: 16px;
   border-left: 2px solid var(--teal);
 }
