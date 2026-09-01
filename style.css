@@ -365,11 +365,11 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .intro-left {
-  flex: 0 0 280px;
+  flex: 0 0 300px;
 }
 
 .intro-left h2 {
-  font-size: 39px;
+  font-size: 38px;
   font-weight: 500;
   line-height: 1.12;
   letter-spacing: -0.02em;
@@ -586,6 +586,11 @@ body::-webkit-scrollbar-thumb:hover {
   display: flex;
   align-items: center;
   gap: 52px;
+}
+
+/* Variante sem imagem (bloco de problemas sem foto) */
+.problems-inner--no-image {
+  padding-left: 80px;
 }
 
 /* Coluna da imagem */
@@ -2377,30 +2382,6 @@ body::-webkit-scrollbar-thumb:hover {
     justify-content: center;
     flex-wrap: wrap;
   }
-}
-
-/* ===== LINK ENTRE PÁGINAS (Coluna ⇄ Osteopatia) ===== */
-.hero-alt-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  margin-top: 18px;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  color: var(--primary);
-  text-decoration: none;
-  opacity: 0.85;
-  transition: opacity 0.2s, transform 0.2s;
-}
-
-.hero-alt-link:hover {
-  opacity: 1;
-  transform: translateX(2px);
-}
-
-.hero-alt-link svg {
-  flex-shrink: 0;
 }
 
 @media (max-width: 480px) {
