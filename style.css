@@ -937,6 +937,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 /* Review card */
 .review-card {
+  height: 420px;
   background: var(--white);
   border-radius: 16px;
   padding: 28px 24px;
@@ -944,6 +945,7 @@ body::-webkit-scrollbar-thumb:hover {
   flex-direction: column;
   gap: 14px;
   flex-shrink: 0;
+  overflow: hidden;
 }
 
 .rc-header {
@@ -1000,6 +1002,12 @@ body::-webkit-scrollbar-thumb:hover {
   line-height: 1;
 }
 
+.rc-rating {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--dark);
+}
+
 .rc-badge {
   width: 18px;
   height: 18px;
@@ -1012,10 +1020,182 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .rc-text {
+  margin: 0;
   font-size: 15px;
   font-weight: 500;
   color: #4B5967;
   line-height: 1.65;
+}
+
+.rc-text.is-clamped {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: var(--review-lines, 10);
+  overflow: hidden;
+}
+
+.rc-read-more {
+  align-self: flex-start;
+  margin-top: auto;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--primary);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.25;
+  text-align: left;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  cursor: pointer;
+}
+
+.rc-read-more[hidden] {
+  display: none;
+}
+
+.rc-read-more:hover,
+.rc-read-more:focus {
+  color: var(--dark);
+  text-decoration-thickness: 2px;
+  outline: 0;
+}
+
+.rc-read-more:focus-visible {
+  box-shadow: 0 0 0 3px rgba(60, 139, 188, 0.24);
+  border-radius: 4px;
+}
+
+/* ===== MODAL DE DEPOIMENTO COMPLETO ===== */
+.review-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.review-modal[hidden] {
+  display: none;
+}
+
+.review-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 17, 30, 0.74);
+  backdrop-filter: blur(7px);
+}
+
+.review-modal__panel {
+  position: relative;
+  width: min(720px, 100%);
+  max-height: min(760px, calc(100vh - 48px));
+  overflow: auto;
+  background: var(--white);
+  color: var(--dark);
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.34);
+  outline: 0;
+}
+
+.review-modal__close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--gray-bg);
+  color: var(--dark);
+  font: 400 26px/1 Arial, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.review-modal__close:hover,
+.review-modal__close:focus {
+  background: #E6EDF2;
+  color: var(--primary);
+  outline: 0;
+}
+
+.review-modal__close:focus-visible {
+  box-shadow: 0 0 0 3px rgba(60, 139, 188, 0.28);
+}
+
+.review-modal__header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-right: 42px;
+}
+
+.review-modal__avatar {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #8DD4F5, #0A4F82);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 54px;
+  color: var(--white);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.review-modal__title {
+  margin: 0;
+  color: var(--dark);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.review-modal__meta {
+  margin: 4px 0 0;
+  color: #999;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.review-modal__stars {
+  margin: 20px 0 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #FBBC04;
+  font-size: 18px;
+  letter-spacing: 2px;
+}
+
+.review-modal__stars strong {
+  color: var(--dark);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.review-modal__body {
+  color: #4B5967;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.72;
+}
+
+.review-modal__body p {
+  margin: 0 0 16px;
+}
+
+.review-modal__body p:last-child {
+  margin-bottom: 0;
 }
 
 /* Carousel buttons */
@@ -1102,8 +1282,46 @@ body::-webkit-scrollbar-thumb:hover {
   line-height: 1.4;
 }
 
-.reviews-footer .btn-cta {
-  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+.btn-google-reviews {
+  min-height: 58px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 0 24px;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--white) !important;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: transform 0.22s ease, border-color 0.22s ease, background-color 0.22s ease;
+}
+
+.btn-google-reviews:hover,
+.btn-google-reviews:focus {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--white);
+  color: var(--white) !important;
+  transform: translateY(-2px);
+  outline: 0;
+}
+
+.btn-google-reviews:focus-visible {
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.34);
+}
+
+.google-mark {
+  width: 23px;
+  height: 23px;
+  display: block;
+  flex: 0 0 23px;
+  background: var(--white);
+  border-radius: 50%;
+  padding: 3px;
 }
 
 /* ===== RESPONSIVE: REVIEWS ===== */
@@ -1117,6 +1335,12 @@ body::-webkit-scrollbar-thumb:hover {
   .reviews-title { font-size: 30px; }
   .reviews-cta-row { flex-direction: column; align-items: flex-start; gap: 24px; }
   .reviews-cta-text { font-size: 18px; }
+  .btn-google-reviews { width: 100%; min-height: 56px; padding: 0 18px; text-align: center; }
+  .review-card { height: 430px; }
+  .review-modal { padding: 16px; }
+  .review-modal__panel { padding: 24px 20px; }
+  .review-modal__title { font-size: 20px; }
+  .review-modal__body { font-size: 15px; }
 }
 
 @media (max-width: 480px) {
@@ -1126,6 +1350,10 @@ body::-webkit-scrollbar-thumb:hover {
   .carousel-btn { display: none; }
   .rc-text { text-align: left; }
   .carousel-btn svg { width: 36px; height: 36px; }
+  .review-card { height: 420px; padding: 24px 20px; }
+  .btn-google-reviews { font-size: 12px; letter-spacing: 0.04em; }
+  .review-modal__header { align-items: flex-start; }
+  .review-modal__avatar { width: 48px; height: 48px; flex-basis: 48px; }
 }
 
 /* ===== CONDITION BLOCK (HÉRNIA, etc.) ===== */
@@ -2079,7 +2307,6 @@ body::-webkit-scrollbar-thumb:hover {
 
   .hero .btn-cta,
   .condition-text .btn-cta,
-  .reviews-footer .btn-cta,
   .faq-footer .btn-cta {
     align-self: center;
     height: 64px;
@@ -2243,7 +2470,6 @@ body::-webkit-scrollbar-thumb:hover {
   }
 
   .condition-text .btn-cta,
-  .reviews-footer .btn-cta,
   .faq-footer .btn-cta {
     height: 60px;
     font-size: 13px;
