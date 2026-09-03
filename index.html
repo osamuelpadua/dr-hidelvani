@@ -268,11 +268,11 @@
   <section class="condition-block condition-block--gray">
     <div class="condition-inner">
 
-      <div class="condition-media">
-        <picture>
-          <source srcset="lombar.webp" type="image/webp">
-          <img src="lombar.png" class="condition-img" alt="Fisioterapeuta avaliando a região lombar de um paciente">
-        </picture>
+      <div class="condition-media condition-media--video">
+        <video class="condition-video" width="800" height="600" poster="lombar-poster.webp" autoplay loop muted playsinline preload="none" aria-label="Fisioterapeuta aplicando técnica manual na região lombar de um paciente">
+          <source data-src="lombar.webm" type="video/webm">
+          <source data-src="lombar-video.mp4" type="video/mp4">
+        </video>
       </div>
 
       <div class="condition-text">
@@ -1293,6 +1293,41 @@
           revealNearBottom();
         });
       });
+    })();
+
+    (function () {
+      var videos = Array.from(document.querySelectorAll('.condition-video'));
+      if (!videos.length) return;
+
+      var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReducedMotion) return;
+
+      function loadVideo(video) {
+        if (video.dataset.loaded) return;
+        video.dataset.loaded = '1';
+        Array.from(video.querySelectorAll('source[data-src]')).forEach(function (source) {
+          source.src = source.getAttribute('data-src');
+          source.removeAttribute('data-src');
+        });
+        video.load();
+        var attempt = video.play();
+        if (attempt && attempt.catch) attempt.catch(function () {});
+      }
+
+      if (!('IntersectionObserver' in window)) {
+        videos.forEach(loadVideo);
+        return;
+      }
+
+      var videoObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          loadVideo(entry.target);
+          videoObserver.unobserve(entry.target);
+        });
+      }, { rootMargin: '200px 0px' });
+
+      videos.forEach(function (video) { videoObserver.observe(video); });
     })();
 
     (function () {
