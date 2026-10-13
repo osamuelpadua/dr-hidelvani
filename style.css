@@ -1505,6 +1505,23 @@ body::-webkit-scrollbar-thumb:hover {
   box-shadow: 0 24px 60px rgba(10, 79, 130, 0.08);
 }
 
+/* Foto acompanha a altura do texto ao lado (desktop) */
+@media (min-width: 981px) {
+  .profile-media--fill {
+    align-self: stretch;
+  }
+
+  .profile-media--fill picture {
+    display: block;
+    height: 100%;
+  }
+
+  .profile-media--fill .profile-image {
+    height: 100%;
+    object-position: 30% center;
+  }
+}
+
 .profile-content {
   max-width: 620px;
   display: flex;

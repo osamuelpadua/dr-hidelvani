@@ -219,7 +219,7 @@
 }
 
 .pt-card--bebe .pt-card-img {
-  object-position: 40% center;
+  object-position: 15% center;
 }
 
 /* Degradê para leitura da legenda */
@@ -342,7 +342,7 @@
 @media (max-width: 600px) {
   .pt-paths { grid-template-columns: 1fr; gap: 14px; }
   .pt-card { aspect-ratio: 10 / 9; border-radius: 18px; }
-  .pt-card--bebe .pt-card-img { object-position: center 45%; }
+  .pt-card--bebe .pt-card-img { object-position: center 22%; }
   .pt-caption { padding: 20px 20px 22px; }
   .pt-card-title { font-size: 20px; }
   .pt-card-desc { font-size: 13px; }
